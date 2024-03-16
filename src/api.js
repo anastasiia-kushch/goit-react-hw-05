@@ -23,3 +23,8 @@ export const getMovieById = async (id) => {
   const response = await request.get(`/movie/${id}`, options)
   return response.data;
 }
+
+export const getMovieCast = async (id) => {
+  const response = await request.get(`/movie/${id}/credits?language=en-US`);
+  return response.data;
+};

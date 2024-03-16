@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getTrendingMovies } from '../../api';
-import Trending from '../../components/Trending/Trending';
+import MovieList from '../../components/MovieList/MovieList';
 
 export default function HomePage() {
   const [trending, setTrending] = useState([]);
@@ -17,5 +17,5 @@ export default function HomePage() {
     fetchTrending();
   }, []);
 
-  return <Trending films={trending}/>
+  return <MovieList films={trending} />;
 }
