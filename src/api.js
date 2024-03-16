@@ -13,7 +13,13 @@ const request = axios.create(options);
 
 const TRENDING_MOVIES = '/trending/movie/day?language=en-US';
 
+
 export const getTrendingMovies = async () => {
-  const result = await request.get(TRENDING_MOVIES, options);
-  return result.data.results;
+  const response = await request.get(TRENDING_MOVIES, options);
+  return response.data.results;
+}
+
+export const getMovieById = async (id) => {
+  const response = await request.get(`/movie/${id}`, options)
+  return response.data;
 }

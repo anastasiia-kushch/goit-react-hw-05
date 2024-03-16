@@ -1,5 +1,21 @@
 .nav {
   display: flex;
-  gap: 4px;
-  margin-bottom: 6px;
+  gap: 8px;
+  margin-bottom: 8px;
+  padding: 4px;
+  border-radius: 3px;
+  box-shadow: 0px 2px 4px #00000037;
+}
+
+.link {
+  color: #232323;
+  font-size: 18px;
+  border: 0.8px solid #363636da;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+.active {
+  color: #ff4500;
+  border-color: #ff4500;
 }
