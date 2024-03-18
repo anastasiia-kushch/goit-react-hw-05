@@ -8,26 +8,35 @@ import {
 } from 'react-router-dom';
 import { getMovieById } from '../../api';
 import css from '../MovieDetailsPage/MovieDetailsPage.module.css';
+import Loader from '../../components/Loader/Loader';
+import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
+import { GoArrowLeft } from "react-icons/go";
 
 export default function MovieDetailsPage() {
   const [details, setDetails] = useState([]);
   const [image, setImage] = useState('');
+  const [isError, setError] = useState(false);
+  const [isLoading, setLoading] = useState(false);
 
   const { movieId } = useParams();
   const location = useLocation();
   const goBackRef = useRef(location.state ?? '/movies');
-  console.log(goBackRef);
+
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
+        setError(false);
+        setLoading(true);
         const response = await getMovieById(movieId);
         setDetails(response);
 
         const img = `https://image.tmdb.org/t/p/w500${response.backdrop_path}`;
         setImage(img);
       } catch (error) {
-        console.log(error);
+        setError(true);
+      } finally {
+        setLoading(false);
       }
     };
     fetchMovieDetails();
@@ -43,13 +52,16 @@ export default function MovieDetailsPage() {
   return (
     <div className={css.div}>
       <Link to={goBackRef.current} className={css.link}>
+      <GoArrowLeft />
         Go back
       </Link>
+      {isLoading && <Loader />}
+      {isError && <ErrorMessage />}
       <div className={css.divInfo}>
         <img src={image} alt={details.title} className={css.img} />
         <div className={css.divText}>
           <div className={css.text}>
-            <h1>{details.title}</h1>
+            <h1>{details.title} ({details.release_date.slice(0, 4)})</h1>
             <p>User Score: {details.vote_count}</p>
           </div>
 
@@ -66,7 +78,7 @@ export default function MovieDetailsPage() {
       </div>
       <hr />
       <div>
-        <h4>Additional info</h4>
+        <h4 className={css.h4}>Additional info</h4>
 
         <div className={css.text}>
           <NavLink to="cast" className={css.navLink}>

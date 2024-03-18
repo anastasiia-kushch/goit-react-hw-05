@@ -1,7 +1,5 @@
 .img {
-  width: 240px;
-  height: auto;
-  object-fit: cover;
+  width: 360px;
 }
 
 .ul {
@@ -13,13 +11,16 @@
 .li {
   border: 0.8px solid #363636da;
   border-radius: 4px;
-  width: 240px;
+  width: 360px;
 }
 
-.text {
+.link {
+  color: #232323;
+  font-size: 20px;
+  padding-bottom: 4px;
   display: flex;
+  gap: 4px;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 4px;
+  justify-content: flex-start;
 }

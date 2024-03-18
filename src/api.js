@@ -11,11 +11,9 @@ const options = {
 
 const request = axios.create(options);
 
-const TRENDING_MOVIES = '/trending/movie/day?language=en-US';
-
 
 export const getTrendingMovies = async () => {
-  const response = await request.get(TRENDING_MOVIES, options);
+  const response = await request.get(`/trending/movie/day?language=en-US`, options);
   return response.data.results;
 }
 
@@ -25,6 +23,16 @@ export const getMovieById = async (id) => {
 }
 
 export const getMovieCast = async (id) => {
-  const response = await request.get(`/movie/${id}/credits?language=en-US`);
+  const response = await request.get(`/movie/${id}/credits?language=en-US`, options);
   return response.data;
 };
+
+export const getMovieReviews = async (id) => {
+  const response = await request.get(`/movie/${id}/reviews?language=en-US&page=1`, options)
+  return response.data.results;
+}
+
+export const searchMovieByQuery = async (query) => {
+  const response = await request.get(`/search/movie?query=${query}`, options)
+  return response.data.results;
+}
