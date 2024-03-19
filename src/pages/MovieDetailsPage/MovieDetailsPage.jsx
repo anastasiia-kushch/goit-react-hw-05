@@ -10,7 +10,7 @@ import { getMovieById } from '../../api';
 import css from '../MovieDetailsPage/MovieDetailsPage.module.css';
 import Loader from '../../components/Loader/Loader';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
-import { GoArrowLeft } from "react-icons/go";
+import { GoArrowLeft } from 'react-icons/go';
 
 export default function MovieDetailsPage() {
   const [details, setDetails] = useState([]);
@@ -21,7 +21,6 @@ export default function MovieDetailsPage() {
   const { movieId } = useParams();
   const location = useLocation();
   const goBackRef = useRef(location.state ?? '/movies');
-
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -52,7 +51,7 @@ export default function MovieDetailsPage() {
   return (
     <div className={css.div}>
       <Link to={goBackRef.current} className={css.link}>
-      <GoArrowLeft />
+        <GoArrowLeft />
         Go back
       </Link>
       {isLoading && <Loader />}
@@ -61,7 +60,9 @@ export default function MovieDetailsPage() {
         <img src={image} alt={details.title} className={css.img} />
         <div className={css.divText}>
           <div className={css.text}>
-            <h1>{details.title} ({details.release_date.slice(0, 4)})</h1>
+            <h1>
+              {details.title} ({details !== undefined && details.release_date.slice(0, 4)})
+            </h1>
             <p>User Score: {details.vote_count}</p>
           </div>
 
