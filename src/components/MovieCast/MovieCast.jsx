@@ -2,18 +2,26 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieCast } from '../../api';
 import css from '../MovieCast/MovieCast.module.css';
+import Loader from '../../components/Loader/Loader';
+import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 
 export default function MovieCast() {
   const { movieId } = useParams();
   const [cast, setCast] = useState([]);
+  const [isError, setError] = useState(false);
+  const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchMovieCast = async () => {
       try {
+        setError(false);
+        setLoading(true);
         const response = await getMovieCast(movieId);
         setCast(response.cast);
       } catch (error) {
-        console.log(error);
+        setError(true);
+      } finally {
+        setLoading(false);
       }
     };
     fetchMovieCast();
@@ -21,6 +29,8 @@ export default function MovieCast() {
 
   return (
     <div>
+      {isLoading && <Loader />}
+      {isError && <ErrorMessage />}
       <ul className={css.ul}>
         {cast &&
           cast.map((actor) => {

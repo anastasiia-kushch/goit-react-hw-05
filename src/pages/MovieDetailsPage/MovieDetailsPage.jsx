@@ -61,7 +61,8 @@ export default function MovieDetailsPage() {
         <div className={css.divText}>
           <div className={css.text}>
             <h1>
-              {details.title} ({details !== undefined && details.release_date.slice(0, 4)})
+              {details.title} (
+              {details.release_date && details.release_date.slice(0, 4)})
             </h1>
             <p>User Score: {details.vote_count}</p>
           </div>
