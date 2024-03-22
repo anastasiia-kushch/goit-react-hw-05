@@ -6,6 +6,7 @@ import * as Yup from 'yup';
 import { useId } from 'react';
 import Loader from '../../components/Loader/Loader';
 import ErrorMsg from '../../components/ErrorMessage/ErrorMessage';
+import { useSearchParams } from 'react-router-dom';
 
 const initialValues = {
   query: '',
@@ -20,18 +21,21 @@ const FormSchema = Yup.object().shape({
 
 export default function MoviesPage() {
   const [movies, setMovies] = useState(null);
-  const [searchQuery, setSearchQuery] = useState('');
   const [isError, setError] = useState(false);
   const [isLoading, setLoading] = useState(false);
+
+  const [searchParams, setSearchParams] = useSearchParams();
+
+
 
   const nameFieldId = useId();
 
   useEffect(() => {
-    const fetchByQuery = async (searchQuery) => {
+    const fetchByQuery = async () => {
       try {
         setError(false);
         setLoading(true);
-        const response = await searchMovieByQuery(searchQuery);
+        const response = await searchMovieByQuery(searchParams);
         setMovies(response);
       } catch (error) {
         setError(true);
@@ -39,11 +43,12 @@ export default function MoviesPage() {
         setLoading(false);
       }
     };
-    fetchByQuery(searchQuery);
-  }, [searchQuery]);
+    fetchByQuery(searchParams);
+
+  }, [searchParams]);
 
   const handleSubmit = (values, actions) => {
-    setSearchQuery(values.query);
+    setSearchParams(values.query);
 
     actions.resetForm();
   };
