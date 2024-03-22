@@ -26,16 +26,16 @@ export default function MoviesPage() {
 
   const [searchParams, setSearchParams] = useSearchParams();
 
-
-
   const nameFieldId = useId();
+
+  const searchQuery = searchParams.get('query') ?? '';
 
   useEffect(() => {
     const fetchByQuery = async () => {
       try {
         setError(false);
         setLoading(true);
-        const response = await searchMovieByQuery(searchParams);
+        const response = await searchMovieByQuery(searchQuery);
         setMovies(response);
       } catch (error) {
         setError(true);
@@ -43,13 +43,13 @@ export default function MoviesPage() {
         setLoading(false);
       }
     };
-    fetchByQuery(searchParams);
-
-  }, [searchParams]);
+    fetchByQuery(searchQuery);
+  }, [searchQuery]);
 
   const handleSubmit = (values, actions) => {
-    setSearchParams(values.query);
-
+    searchParams.set('query', values.query);
+    setSearchParams(searchParams);
+    
     actions.resetForm();
   };
 
