@@ -57,14 +57,9 @@ export default function MoviesPage() {
       >
         <Form className={css.form}>
           <Field type="text" name="query" id={nameFieldId} className={css.input} placeholder="Search movies.."></Field>
-          <button type="submit" className={css.button}> <FiSearch /></button>
+          <button type="submit" className={css.button}> <FiSearch style={{fill: '#ffffff'}}/></button>
         </Form>
       </Formik>
-
-
-      <ScrollToTop showUnder={100} className={css.scroll}>
-        <span>UP</span>
-      </ScrollToTop>
 
       {movies !== null && <MovieList films={movies} />}
       {isLoading && <Loader />}

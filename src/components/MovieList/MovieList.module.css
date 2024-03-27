@@ -40,8 +40,12 @@
     flex-wrap: wrap;
     justify-content: center;
   }
+
+  .li {
+    width: 359px;
+  }
   .img {
-    width: 320px;
+    width: 359px;
     object-fit: cover;
   }
 }

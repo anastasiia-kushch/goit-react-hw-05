@@ -24,3 +24,9 @@
   border: none;
   padding: 4px;
 }
+
+@media screen and (max-width: 767px) {
+  .input {
+    width: 310px;
+  }
+}

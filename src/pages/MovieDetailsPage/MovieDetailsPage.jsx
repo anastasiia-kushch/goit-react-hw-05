@@ -10,7 +10,7 @@ import { getMovieById } from '../../api';
 import css from '../MovieDetailsPage/MovieDetailsPage.module.css';
 import Loader from '../../components/Loader/Loader';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
-import { GoArrowLeft, GoArrowUp } from 'react-icons/go';
+import { GoArrowLeft } from 'react-icons/go';
 import StarRating from '../../components/StarRating/StarRating';
 import ScrollToTop from 'react-scroll-up';
 
