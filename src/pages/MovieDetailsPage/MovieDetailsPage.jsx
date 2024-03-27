@@ -10,8 +10,9 @@ import { getMovieById } from '../../api';
 import css from '../MovieDetailsPage/MovieDetailsPage.module.css';
 import Loader from '../../components/Loader/Loader';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
-import { GoArrowLeft } from 'react-icons/go';
+import { GoArrowLeft, GoArrowUp } from 'react-icons/go';
 import StarRating from '../../components/StarRating/StarRating';
+import ScrollToTop from 'react-scroll-up';
 
 export default function MovieDetailsPage() {
   const [details, setDetails] = useState([]);
@@ -92,6 +93,24 @@ export default function MovieDetailsPage() {
           </NavLink>
         </div>
       </div>
+
+      <ScrollToTop
+        showUnder={100}
+        style={{
+          backgroundColor: '#2a2724ca',
+          color: '#ffffff',
+          borderRadius: '50%',
+          width: '40px',
+          height: '40px',
+          lineHeight: '40px',
+          textAlign: 'center',
+          margin: '0px',
+          bottom: '14px',
+          right: '14px',
+        }}
+      >
+        <span>UP</span>
+      </ScrollToTop>
 
       <hr />
 

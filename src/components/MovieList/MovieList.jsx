@@ -1,13 +1,30 @@
 import { Link, useLocation } from 'react-router-dom';
 import css from '../MovieList/MovieList.module.css';
 import StarRating from '../StarRating/StarRating';
+import ScrollToTop from 'react-scroll-up';
 
 export default function MovieList({ films }) {
   const location = useLocation();
-  const src = films.map((film) => film.backdrop_path);
 
   return (
     <div>
+      <ScrollToTop
+        showUnder={100}
+        style={{
+          backgroundColor: '#2a2724ca',
+          color: '#ffffff',
+          borderRadius: '50%',
+          width: '40px',
+          height: '40px',
+          lineHeight: '40px',
+          textAlign: 'center',
+          margin: '0px',
+          bottom: '14px',
+          right: '14px',
+        }}
+      >
+        <span>UP</span>
+      </ScrollToTop>
       <ul className={css.ul}>
         {films.map((film) => {
           return (

@@ -5,6 +5,7 @@ import Loader from '../../components/Loader/Loader';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 
 import css from '../HomePage/HomePage.module.css'
+import ScrollToTop from 'react-scroll-up';
 
 export default function HomePage() {
   const [trending, setTrending] = useState([]);

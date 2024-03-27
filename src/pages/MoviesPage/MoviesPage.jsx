@@ -8,6 +8,7 @@ import ErrorMsg from '../../components/ErrorMessage/ErrorMessage';
 import { useSearchParams } from 'react-router-dom';
 import { FiSearch } from "react-icons/fi";
 import css from '../MoviesPage/MoviesPage.module.css'
+import ScrollToTop from 'react-scroll-up';
 
 const initialValues = {
   query: '',
@@ -59,6 +60,11 @@ export default function MoviesPage() {
           <button type="submit" className={css.button}> <FiSearch /></button>
         </Form>
       </Formik>
+
+
+      <ScrollToTop showUnder={100} className={css.scroll}>
+        <span>UP</span>
+      </ScrollToTop>
 
       {movies !== null && <MovieList films={movies} />}
       {isLoading && <Loader />}

@@ -1,5 +1,5 @@
 .img {
-  display: block;  
+  display: block;
   width: 208px;
   height: 220px;
   object-fit: cover;
@@ -32,4 +32,16 @@
   justify-content: center;
   gap: 4px;
   font-size: 14px;
+}
+
+@media screen and (max-width: 767px) {
+  .ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .img {
+    width: 250px;
+  }
 }
