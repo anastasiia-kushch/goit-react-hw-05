@@ -23,6 +23,7 @@
   border-radius: 3px;
   box-shadow: 0px 2px 4px #0000007b;
   overflow: hidden;
+
 }
 
 .text {
@@ -32,6 +33,7 @@
   justify-content: center;
   gap: 4px;
   font-size: 14px;
+  padding: 0 2px 2px 2px;
 }
 
 @media screen and (max-width: 767px) {
@@ -43,5 +45,28 @@
   }
   .img {
     width: 250px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 12px;
+  }
+  .img {
+    width: 250px;
+  }
+  
+  .text {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1158px) {
+  .ul {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 16px;
   }
 }

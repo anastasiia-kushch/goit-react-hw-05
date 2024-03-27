@@ -30,3 +30,9 @@
     width: 310px;
   }
 }
+
+@media screen and (min-width: 768px) {
+  .input {
+    width: 310px;
+  }
+}

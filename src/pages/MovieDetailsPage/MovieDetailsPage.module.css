@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   width: max-content;
-  font-size: 16px;
+  font-size: 18px;
   background-color: #fffffff2;
 }
 
@@ -81,13 +81,13 @@
   .img {
     width: 320px;
   }
-
-  .link {
-    font-size: 18px;
-  }
 }
 
 @media screen and (min-width: 768px) {
+  .img {
+    height: 280px;
+    object-fit: cover;
+  }
 }
 
 @media screen and (min-width: 1158px) {

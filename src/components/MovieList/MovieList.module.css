@@ -49,3 +49,21 @@
     object-fit: cover;
   }
 }
+
+@media screen and (min-width: 768px) {
+  .ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .img {
+    width: 340px;
+    object-fit: cover;
+  }
+
+  .li {
+    width: 340px;
+  }
+}
