@@ -5,7 +5,7 @@
   object-fit: cover;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
 }
 
 .ul {
@@ -31,5 +31,5 @@
   align-items: center;
   justify-content: center;
   gap: 4px;
-  font-size: 16px;
+  font-size: 14px;
 }
