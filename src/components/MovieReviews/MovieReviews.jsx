@@ -3,10 +3,11 @@ import { useParams } from 'react-router-dom';
 import { getMovieReviews } from '../../api';
 import Loader from '../../components/Loader/Loader';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
+import css from '../MovieReviews/MovieReviews.module.css'
 
 export default function MovieReviews() {
   const { movieId } = useParams();
-  const [reviews, setReviews] = useState(null);
+  const [reviews, setReviews] = useState([]);
   const [isError, setError] = useState(false);
   const [isLoading, setLoading] = useState(false);
 
@@ -31,20 +32,19 @@ export default function MovieReviews() {
     <div>
       {isLoading && <Loader />}
       {isError && <ErrorMessage />}
-      <ul>
+      <ul className={css.list}>
         {reviews !== null &&
           reviews.map((review) => {
             return (
               <li key={review.id}>
-                <b>Author: {review.author}</b>
-                <p>'{review.content}'</p>
+                <h3 className={css.title}>Author: {review.author}</h3>
+                <p className={css.text}>'{review.content}'</p>
               </li>
             );
           })}
-        {reviews == null && <b>We don't have any reviews for this movie</b>}
+        {reviews.length === 0 && <p>We don't have any reviews for this movie.</p>}
       </ul>
     </div>
   );
 }
 
-//the king

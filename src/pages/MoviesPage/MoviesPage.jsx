@@ -1,23 +1,18 @@
 import { useEffect, useState } from 'react';
 import { searchMovieByQuery } from '../../api';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import MovieList from '../../components/MovieList/MovieList';
-import * as Yup from 'yup';
 import { useId } from 'react';
 import Loader from '../../components/Loader/Loader';
 import ErrorMsg from '../../components/ErrorMessage/ErrorMessage';
 import { useSearchParams } from 'react-router-dom';
+import { FiSearch } from "react-icons/fi";
+import css from '../MoviesPage/MoviesPage.module.css'
 
 const initialValues = {
   query: '',
 };
 
-const FormSchema = Yup.object().shape({
-  query: Yup.string()
-    .min(1, 'Too Short!')
-    .max(20, 'Too Long!')
-    .required('Required'),
-});
 
 export default function MoviesPage() {
   const [movies, setMovies] = useState(null);
@@ -58,17 +53,10 @@ export default function MoviesPage() {
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}
-        validationSchema={FormSchema}
       >
-        <Form>
-          <Field type="text" name="query" id={nameFieldId}></Field>
-          <ErrorMessage
-            type="text"
-            name="query"
-            component="p"
-            //className={css.error}
-          />
-          <button type="submit">Search</button>
+        <Form className={css.form}>
+          <Field type="text" name="query" id={nameFieldId} className={css.input} placeholder="Search movies.."></Field>
+          <button type="submit" className={css.button}> <FiSearch /></button>
         </Form>
       </Formik>
 

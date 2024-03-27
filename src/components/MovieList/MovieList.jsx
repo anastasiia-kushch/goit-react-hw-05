@@ -1,12 +1,10 @@
 import { Link, useLocation } from 'react-router-dom';
 import css from '../MovieList/MovieList.module.css';
+import StarRating from '../StarRating/StarRating';
 
 export default function MovieList({ films }) {
   const location = useLocation();
-
-  console.log(films);
   const src = films.map((film) => film.backdrop_path);
-  console.log(src);
 
   return (
     <div>
@@ -30,6 +28,7 @@ export default function MovieList({ films }) {
                 }
 
                 {film.title}
+                {<StarRating rating={film.vote_average} />}
               </Link>
             </li>
           );

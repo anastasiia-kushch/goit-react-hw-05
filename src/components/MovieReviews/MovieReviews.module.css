@@ -1,0 +1,18 @@
+.list {
+  background-color: #fffffff2;
+  padding: 4px;
+  border-radius: 3px;
+  box-shadow: 0px 2px 4px #0000007b;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.title {
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.text {
+  font-size: 16px;
+}

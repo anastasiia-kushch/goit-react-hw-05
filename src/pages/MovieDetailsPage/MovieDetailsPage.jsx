@@ -11,6 +11,7 @@ import css from '../MovieDetailsPage/MovieDetailsPage.module.css';
 import Loader from '../../components/Loader/Loader';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import { GoArrowLeft } from 'react-icons/go';
+import StarRating from '../../components/StarRating/StarRating';
 
 export default function MovieDetailsPage() {
   const [details, setDetails] = useState([]);
@@ -64,7 +65,7 @@ export default function MovieDetailsPage() {
               {details.title} (
               {details.release_date && details.release_date.slice(0, 4)})
             </h1>
-            <p>User Score: {details.vote_count}</p>
+            <p>User Score: {<StarRating rating={details.vote_average} />}</p>
           </div>
 
           <div className={css.text}>
@@ -79,8 +80,8 @@ export default function MovieDetailsPage() {
         </div>
       </div>
       <hr />
-      <div>
-        <h4 className={css.h4}>Additional info</h4>
+      <div className={css.addInfo}>
+        <h3 className={css.h3}>Additional info</h3>
 
         <div className={css.text}>
           <NavLink to="cast" className={css.navLink}>

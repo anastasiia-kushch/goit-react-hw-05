@@ -1,19 +1,28 @@
 .img {
-  width: 240px;
-  height: auto;
+  display: block;  
+  width: 208px;
+  height: 220px;
   object-fit: cover;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2px;
 }
 
 .ul {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 10px;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 16px;
 }
 
 .li {
   border: 0.8px solid #363636da;
-  border-radius: 4px;
-  width: 240px;
+  min-width: 208px;
+  max-width: min-content;
+  height: 270px;
+  background-color: #fffffff2;
+  border-radius: 3px;
+  box-shadow: 0px 2px 4px #0000007b;
+  overflow: hidden;
 }
 
 .text {
@@ -22,4 +31,5 @@
   align-items: center;
   justify-content: center;
   gap: 4px;
+  font-size: 16px;
 }

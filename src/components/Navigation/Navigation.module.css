@@ -1,10 +1,10 @@
 .nav {
   display: flex;
   gap: 8px;
-  margin-bottom: 8px;
   padding: 4px;
   border-radius: 3px;
-  box-shadow: 0px 2px 4px #00000037;
+  box-shadow: 0px 2px 4px #0000007b;
+  background-color: #f0f0f4;
 }
 
 .link {
