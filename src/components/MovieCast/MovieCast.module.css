@@ -65,8 +65,14 @@
 
 @media screen and (min-width: 1158px) {
   .ul {
-    display: grid;
     grid-template-columns: repeat(4, 1fr);
+    grid-gap: 16px;
+  }
+}
+
+@media screen and (min-width: 1158px) {
+  .ul {
+    grid-template-columns: repeat(6, 1fr);
     grid-gap: 16px;
   }
 }
