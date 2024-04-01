@@ -18,7 +18,7 @@ Welcome to MovieSearch Website! This platform provides users with a comprehensiv
 
 - **Backend:** Utilizes the server https://api.themoviedb.org as the backend for accessing movie data and information.
 
-- **Adapted Layout:** The website features responsive design and optimized layout to ensure seamless user experience across desktop, tablet, and mobile devices.
+- **Responsive Layout:** The website features responsive design and optimized layout to ensure seamless user experience across desktop, tablet, and mobile devices.
 
 ## Getting Started
 
